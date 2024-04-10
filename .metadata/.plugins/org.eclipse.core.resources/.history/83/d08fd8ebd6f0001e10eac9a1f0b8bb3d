@@ -1,0 +1,38 @@
+package event_viewer;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
+import Set.ty.Data;
+import Set.ty.ExcelProvider;
+
+public class TableAction {
+	WebDriver driver;
+	ExcelProvider ex;
+	public TableAction(WebDriver driver) {
+
+		this.driver = driver;
+	}
+	public void Table() throws IOException
+	{
+		ex= new ExcelProvider();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);	
+		driver.findElement(By.xpath("//p[normalize-space()='Table Actions']")).click();
+		//Page group
+		String expectedValue = ex.getStringData("TableAction", 1, 3); 
+		// Enter the fetched value into the input field
+		WebElement inputField = driver.findElement(By.xpath("//input[@ng-reflect-name='bind8']"));
+		inputField.sendKeys(expectedValue);
+		// Retrieve the entered value from the input field
+		String actualValue = inputField.getAttribute("value");
+		//  Check if the entered value matches the expected value
+		Assert.assertEquals(actualValue, expectedValue, "Entered value is not as expected.");
+		
+}
+}

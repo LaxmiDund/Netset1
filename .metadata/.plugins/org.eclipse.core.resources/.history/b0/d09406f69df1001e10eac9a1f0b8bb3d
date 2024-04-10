@@ -1,0 +1,47 @@
+package event_viewer;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
+import Set.ty.ExcelProvider;
+
+public class Corba {
+WebDriver driver;
+ExcelProvider ex;
+public Corba(WebDriver driver) {
+	this.driver=driver;
+}
+public void add() throws IOException {
+	ex= new ExcelProvider();
+	driver.findElement(By.xpath("//p[normalize-space()='CORBA TMF 814']")).click();
+	//emsname
+	String expectedValue1 = ex.getStringData("CORBA", 1, 0); 
+	WebElement inputfield1=driver.findElement(By.xpath("//input[@ng-reflect-name='emsname']"));
+	inputfield1.sendKeys(expectedValue1);
+	String actualValue1 = inputfield1.getAttribute("value");
+	Assert.assertEquals(actualValue1, expectedValue1, "Entered value is not as expected.");
+	
+	//ems ip
+	String expectedValue2 = ex.getStringData("CORBA", 1, 1); 
+	WebElement inputfield2=driver.findElement(By.xpath("//input[@ng-reflect-name='emsip']"));
+	Assert.assertTrue(inputfield2.isEnabled(), "Textbox is not enabled");
+	inputfield2.sendKeys(expectedValue2);
+	String actualValue2 = inputfield2.getAttribute("value");
+	Assert.assertEquals(actualValue2, expectedValue2, "Entered value is not as expected.");
+	
+	//emsType
+	String expecedValue3=ex.getStringData("CORBA", 1, 2);
+	WebElement inputfeild3=driver.findElement(By.xpath("//input[@ng-reflect-name='emstype']"));
+			+ "
+	
+	
+	
+	
+}
+
+}

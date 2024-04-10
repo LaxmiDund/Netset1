@@ -1,0 +1,22 @@
+package event_viewer;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import Set.ty.ExcelProvider;
+
+public class Event1 {
+	WebDriver driver;
+	ExcelProvider ex;
+	public Event1(WebDriver driver) {
+
+		this.driver = driver;
+	}
+	public void viewer() throws IOException
+	{
+		ex= new ExcelProvider();
+		driver.findElement(By.xpath("//div[contains(text(),'Event Viewer')]")).click();	
+	}
+}

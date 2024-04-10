@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+    <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="net"/>
+    <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+    <mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS">
+        <mapEntry key="Demo.ty.ForgotPass" value="Test;ForgotPass"/>
+        <mapEntry key="Demo.ty.Login" value="login;clearFields;validateLogin"/>
+        <mapEntry key="Demo.ty.Shelf" value="Shelf;Screation"/>
+        <mapEntry key="Demo.ty.deviceCreation" value="addDevice;deviceCreation"/>
+        <mapEntry key="Metadata.ty.Cardtype" value="Cardtype;ctype"/>
+        <mapEntry key="Metadata.ty.Cardtype_porttype" value="Cardtype_porttype;neprtype"/>
+        <mapEntry key="Metadata.ty.Cardtype_slottype" value="crsltype;Cardtype_slottype"/>
+        <mapEntry key="Metadata.ty.Circuittype" value="ctype;Circuittype"/>
+        <mapEntry key="Metadata.ty.Customer" value="Customer;cust"/>
+        <mapEntry key="Metadata.ty.Customer_Order" value="custorder;Customer_Order"/>
+        <mapEntry key="Metadata.ty.Customertype" value="Customertype;custype"/>
+        <mapEntry key="Metadata.ty.Department" value="Dtype;Department"/>
+        <mapEntry key="Metadata.ty.Linktype" value="Linktype;ltype"/>
+        <mapEntry key="Metadata.ty.Locationtype" value="Locationtype;locate"/>
+        <mapEntry key="Metadata.ty.Netypeporttype" value="Netypeporttype;neprtype"/>
+        <mapEntry key="Metadata.ty.Netypeshelftype" value="Netypeshelftype;neshtype"/>
+        <mapEntry key="Metadata.ty.Object1" value="otype;Object1"/>
+        <mapEntry key="Metadata.ty.Order" value="order1;Order"/>
+        <mapEntry key="Metadata.ty.Ordertype" value="Ordertype;Otype"/>
+        <mapEntry key="Metadata.ty.Porttype" value="Porttype;ptype"/>
+        <mapEntry key="Metadata.ty.Shelftype_Porttype" value="Shelftype_Porttype;shprtype"/>
+        <mapEntry key="Metadata.ty.Shelftypenetype" value="shnetype;Shelftypenetype"/>
+        <mapEntry key="Metadata.ty.Tabelement" value="tab;Tabelement"/>
+        <mapEntry key="Metadata.ty.Topology1" value="topo;Topology1"/>
+        <mapEntry key="Metadata.ty.Vendor" value="vtype;Vendor"/>
+        <mapEntry key="Set.ty.Data" value="dropdown"/>
+        <mapEntry key="Set.ty.ExcelProvider" value="ExcelProvider;getNumericData;getStringData"/>
+        <mapEntry key="Set.ty.Extent" value="flushReport;createTest;Extent"/>
+        <mapEntry key="event_viewer.Corba" value="add;Corba"/>
+        <mapEntry key="event_viewer.Dashboard" value="stop2;Dashboard"/>
+        <mapEntry key="event_viewer.Device" value="Device;stop"/>
+        <mapEntry key="event_viewer.Event1" value="viewer;Event1"/>
+        <mapEntry key="event_viewer.PageTab" value="PageTab;Table1"/>
+        <mapEntry key="event_viewer.Reports" value="stop1;Reports"/>
+        <mapEntry key="event_viewer.SNMP" value="create;SNMP"/>
+        <mapEntry key="event_viewer.SNMP_V2" value="SNMP_V2;simple"/>
+        <mapEntry key="event_viewer.SNMP_V3" value="SNMP_V3;Hash"/>
+        <mapEntry key="event_viewer.TableAction" value="Table;TableAction"/>
+        <mapEntry key="event_viewer.severity" value="Test;severity"/>
+    </mapAttribute>
+    <listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
+        <listEntry value="event_viewer.PageTab"/>
+        <listEntry value="Metadata.ty.Customer"/>
+        <listEntry value="Metadata.ty.Order"/>
+        <listEntry value="Metadata.ty.Vendor"/>
+        <listEntry value="Metadata.ty.Porttype"/>
+        <listEntry value="event_viewer.Corba"/>
+        <listEntry value="Metadata.ty.Shelftype_Porttype"/>
+        <listEntry value="Demo.ty.deviceCreation"/>
+        <listEntry value="Metadata.ty.Cardtype_porttype"/>
+        <listEntry value="Metadata.ty.Cardtype"/>
+        <listEntry value="Metadata.ty.Locationtype"/>
+        <listEntry value="Demo.ty.Login"/>
+        <listEntry value="event_viewer.TableAction"/>
+        <listEntry value="Metadata.ty.Ordertype"/>
+        <listEntry value="event_viewer.SNMP"/>
+        <listEntry value="event_viewer.Device"/>
+        <listEntry value="Metadata.ty.Cardtype_slottype"/>
+        <listEntry value="event_viewer.severity"/>
+        <listEntry value="Metadata.ty.Tabelement"/>
+        <listEntry value="Set.ty.Extent"/>
+        <listEntry value="event_viewer.Dashboard"/>
+        <listEntry value="Set.ty.Data"/>
+        <listEntry value="Metadata.ty.Netypeshelftype"/>
+        <listEntry value="Demo.ty.Shelf"/>
+        <listEntry value="Metadata.ty.Department"/>
+        <listEntry value="Metadata.ty.Netypeporttype"/>
+        <listEntry value="Demo.ty.ForgotPass"/>
+        <listEntry value="Metadata.ty.Circuittype"/>
+        <listEntry value="Metadata.ty.Linktype"/>
+        <listEntry value="Metadata.ty.Customer_Order"/>
+        <listEntry value="Metadata.ty.Customertype"/>
+        <listEntry value="Metadata.ty.Topology1"/>
+        <listEntry value="event_viewer.Reports"/>
+        <listEntry value="Metadata.ty.Shelftypenetype"/>
+        <listEntry value="event_viewer.SNMP_V2"/>
+        <listEntry value="event_viewer.SNMP_V3"/>
+        <listEntry value="Metadata.ty.Object1"/>
+        <listEntry value="Set.ty.ExcelProvider"/>
+        <listEntry value="event_viewer.Event1"/>
+    </listAttribute>
+    <listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
+    <listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+    <stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
+    <intAttribute key="org.testng.eclipse.TYPE" value="1"/>
+</launchConfiguration>

@@ -1,0 +1,32 @@
+package event_viewer;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import Set.ty.Data;
+import Set.ty.ExcelProvider;
+
+public class TableAction {
+	WebDriver driver;
+	ExcelProvider ex;
+	public TableAction(WebDriver driver) {
+
+		this.driver = driver;
+	}
+	public void Table() throws IOException
+	{
+		ex= new ExcelProvider();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);	
+		driver.findElement(By.xpath("//p[normalize-space()='Table Actions']")).click();
+		//Page group
+		driver.findElement(By.xpath("//ng-select[@id='bind8']")).click();
+		List<WebElement> page4=driver.findElements(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']//div//div"));
+		Data.dropdown(page4,ex.getStringData("Event_Viewer", 1, 7));
+		
+}
+}

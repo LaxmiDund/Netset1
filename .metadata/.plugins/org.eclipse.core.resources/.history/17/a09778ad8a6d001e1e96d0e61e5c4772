@@ -1,0 +1,23 @@
+package Metadata.ty;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import Set.ty.ExcelProvider;
+
+public class Cardtype {
+ExcelProvider ex;
+WebDriver driver;
+
+public Cardtype(WebDriver driver) {
+	this.driver = driver;
+}
+public void ctype() throws IOException {
+  ex=new ExcelProvider();
+  driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+  driver.findElement(By.id("//div[contains(text(),'Metadata')]")).click();
+}
+}

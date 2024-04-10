@@ -1,0 +1,22 @@
+package event_viewer;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import Set.ty.ExcelProvider;
+
+public class SNMP_V2 {
+WebDriver driver;
+ExcelProvider ex;
+
+public SNMP_V2(WebDriver driver) {
+	this.driver=driver;
+}
+public void simple() throws IOException
+{
+	ex = new ExcelProvider();
+	driver.findElement(By.xpath("//p[normalize-space()='SNMP V2']")).click();
+}
+}

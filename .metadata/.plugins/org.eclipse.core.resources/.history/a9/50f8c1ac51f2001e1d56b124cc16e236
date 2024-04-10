@@ -1,0 +1,60 @@
+package event_viewer;
+
+import java.io.IOException;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import Set.ty.Data;
+import Set.ty.ExcelProvider;
+
+public class Device {
+	WebDriver driver;
+	ExcelProvider ex;
+	public Device(WebDriver driver) {
+		this.driver=driver;
+	}
+	public void stop() throws IOException, InterruptedException
+	{
+		ex= new ExcelProvider();
+		driver.findElement(By.xpath("//p[normalize-space()='Device Group']")).click();
+		//emsname
+		String expectedValue1 = ex.getStringData("Device_Group", 1, 0); 
+		WebElement inputfield1=driver.findElement(By.xpath("//input[@ng-reflect-name='groupName']"));
+		inputfield1.sendKeys(expectedValue1);
+		String actualValue1 = inputfield1.getAttribute("value");
+		Assert.assertEquals(actualValue1, expectedValue1, "Entered value is not as expected.");
+		
+		
+		WebElement dropdown = driver.findElement(By.xpath("//ng-multiselect-dropdown[@ng-reflect-name='DeviceIDs']"));
+
+        // Click on the dropdown to open it
+        dropdown.click();
+
+        // Find all the checkboxes within the dropdown panel
+        java.util.List<WebElement> checkboxes = driver.findElements(By.xpath("//ng-multiselect-dropdown[@ng-reflect-name='DeviceIDs']//input[@type='checkbox']"));
+
+        // Iterate through each checkbox and click on the desired one
+        for (WebElement checkbox : checkboxes) {
+            // Check the checkbox based on some condition
+            // For example, if the checkbox label is "Option 1", click on it
+            if (checkbox.getAttribute("value").equals("Option 1")) {
+                checkbox.click();
+                break; // Exit the loop after clicking the checkbox
+            }
+        }
+		
+		
+		WebElement dropdown11=driver.findElement(By.xpath("//ng-multiselect-dropdown[@ng-reflect-name='DeviceIDs']"));
+		Select select11= new Select(dropdown11);
+		String expect = ex.getStringData("Device_Group", 1, 1);
+		select11.selectByVisibleText(expect);
+		String selectedOption11 = select11.getFirstSelectedOption().getText();
+		Assert.assertEquals(selectedOption11, expect, "Selected option is not as expected.");
+		
+	}
+}

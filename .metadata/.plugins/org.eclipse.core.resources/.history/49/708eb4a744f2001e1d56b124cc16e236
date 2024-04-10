@@ -1,0 +1,22 @@
+package event_viewer;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import Set.ty.ExcelProvider;
+
+public class PageTab {
+	WebDriver driver;
+	ExcelProvider ex;
+	public PageTab(WebDriver driver) {
+
+		this.driver = driver;
+	}
+	public void Table() throws IOException, InterruptedException
+	{
+		ex= new ExcelProvider();
+		driver.findElement(By.xpath("//p[normalize-space()='Table Actions']")).click();
+}
+}

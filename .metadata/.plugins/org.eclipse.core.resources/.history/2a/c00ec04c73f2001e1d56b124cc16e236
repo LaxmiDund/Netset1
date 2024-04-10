@@ -1,0 +1,38 @@
+package event_viewer;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
+import Set.ty.ExcelProvider;
+
+public class severity {
+	WebDriver driver;
+	ExcelProvider ex;
+	public severity(WebDriver driver) {
+
+		this.driver = driver;
+	}
+	public void Test() throws IOException, InterruptedException
+	{
+		ex= new ExcelProvider();
+		driver.findElement(By.xpath("//p[normalize-space()='Severity']")).click();
+		
+		
+		String expectedValue1 = ex.getStringData("TabPage", 1, 0); 
+		WebElement inputfield1=driver.findElement(By.xpath("//input[@ng-reflect-name='severityName']"));
+		inputfield1.sendKeys(expectedValue1);
+		String actualValue1 = inputfield1.getAttribute("value");
+		Assert.assertEquals(actualValue1, expectedValue1, "Entered value is not as expected.");
+		
+		String expectedValue2 = ex.getStringData("TabPage", 1, 0); 
+		WebElement inputfield2=driver.findElement(By.xpath("//input[@ng-reflect-name='severityName']"));
+		inputfield2.sendKeys(expectedValue2);
+		String actualValue2 = inputfield2.getAttribute("value");
+		Assert.assertEquals(actualValue1, expectedValue1, "Entered value is not as expected.");
+		
+}
+}

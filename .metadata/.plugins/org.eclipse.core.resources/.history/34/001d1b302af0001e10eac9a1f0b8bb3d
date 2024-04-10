@@ -1,0 +1,51 @@
+package Set.ty;
+
+import org.apache.poi.xssf.usermodel.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class ExcelProvider {
+	
+	private XSSFWorkbook wb;
+
+	public ExcelProvider() throws IOException {
+		File src = new File("./Test/data.xlsx");
+		FileInputStream file = new FileInputStream(src);
+		wb = new XSSFWorkbook(file);
+	}
+
+	public String getStringData(String shName, int row, int col) {
+		XSSFCell cell = wb.getSheet(shName).getRow(row).getCell(col);
+		return getCellValueAsString(cell);
+	}
+
+	public double getNumericData(String shName, int row, int col) {
+		return wb.getSheet(shName).getRow(row).getCell(col).getNumericCellValue();
+	}
+	
+	private String getCellValueAsString(XSSFCell cell) {
+		String cellValue = "";
+		if (cell != null) {
+			switch (cell.getCellType()) {
+				case STRING:
+					cellValue = cell.getStringCellValue();
+					break;
+				case NUMERIC:
+					cellValue = String.valueOf(cell.getNumericCellValue());
+					break;
+				case BOOLEAN:
+					cellValue = String.valueOf(cell.getBooleanCellValue());
+					break;
+				case FORMULA:
+					cellValue = cell.getCellFormula();
+					break;
+				default:
+					cellValue = ""; // Handle other cell types if needed
+			}
+		}
+		return cellValue;
+	}
+}
+

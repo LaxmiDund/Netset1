@@ -1,0 +1,129 @@
+package event_viewer;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+import Set.ty.Data;
+import Set.ty.ExcelProvider;
+
+public class Event1 {
+	WebDriver driver;
+	ExcelProvider ex;
+	public Event1(WebDriver driver) {
+		this.driver = driver;
+	}
+	public void viewer() throws IOException
+	{
+		ex= new ExcelProvider();
+		//driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//div[contains(text(),'Event Viewer Metadata')]")).click();	
+		driver.findElement(By.xpath("//p[normalize-space()='Tab Element']")).click();
+
+		driver.findElement(By.xpath("//ng-select[@id='bind2']")).click();
+		List<WebElement> page=driver.findElements(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']//div//div"));
+		String expectedData=ex.getStringData("Event_Viewer", 1, 0);
+		Assert.assertTrue(Data.dropdown(page, expectedData), "Expected data is not present in the dropdown options.");
+
+		
+        // Select option from dropdown
+        WebElement dropdown = driver.findElement(By.xpath("//select[@id='bind1']"));
+        Select select = new Select(dropdown);
+        String expectedData1 = ex.getStringData("Event_Viewer", 1, 1); // Assuming data is in Sheet1, row 1, column 1
+        select.selectByVisibleText(expectedData1);
+        // Get Actual Data: Retrieve selected option from the dropdown
+        String selectedOption = select.getFirstSelectedOption().getText();
+        // Assert: Check if the selected option matches the expected data
+        Assert.assertEquals(selectedOption, expectedData1, "Selected option is not as expected.");
+
+        
+		WebElement page2 = driver.findElement(By.xpath("//select[@id='bind252']"));
+		Select select2 = new Select(page2);
+        String expectedData2 = ex.getStringData("Event_Viewer", 1, 2); // Assuming data is in Sheet1, row 1, column 1
+        select.selectByVisibleText(expectedData2);
+        String selectedOption1 = select.getFirstSelectedOption().getText();
+        Assert.assertEquals(selectedOption1, expectedData2, "Selected option is not as expected.");
+
+
+
+		driver.findElement(By.xpath("//i[@class='fa fa-pencil-square-o']")).click();
+		driver.findElement(By.xpath("//input[@ng-reflect-name='TabElementId']")).sendKeys(ex.getStringData("Event_Viewer", 1, 3));
+		driver.findElement(By.xpath("//input[@ng-reflect-name='ElementDisplayName']")).sendKeys(ex.getStringData("Event_Viewer", 1, 4));
+		driver.findElement(By.xpath("//input[@ng-reflect-name='ElementSelectedValue']")).sendKeys(ex.getStringData("Event_Viewer", 1, 5));
+
+		driver.findElement(By.xpath("//ng-select[@id='bindElementType']")).click();
+		List<WebElement> page3=driver.findElements(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']//div//div"));
+		Data.dropdown(page3,ex.getStringData("Event_Viewer", 1, 6));
+
+		driver.findElement(By.xpath("//ng-select[@id='bindisAction']")).click();
+		List<WebElement> page4=driver.findElements(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']//div//div"));
+		Data.dropdown(page4,ex.getStringData("Event_Viewer", 1, 7));
+
+		driver.findElement(By.xpath("//input[@ng-reflect-name='elementOrder']")).sendKeys(ex.getStringData("Event_Viewer", 1, 8));
+
+		driver.findElement(By.xpath("//input[@ng-reflect-name='defaultValue']")).sendKeys(ex.getStringData("Event_Viewer", 1, 9));
+
+		driver.findElement(By.xpath("//input[@ng-reflect-name='elementOption']")).sendKeys(ex.getStringData("Event_Viewer", 1, 10));
+
+		driver.findElement(By.xpath("//input[@ng-reflect-name='ElementAction']")).sendKeys(ex.getStringData("Event_Viewer", 1, 11));
+
+		driver.findElement(By.xpath("//input[@ng-reflect-name='APICall']")).sendKeys(ex.getStringData("Event_Viewer", 1, 12));
+
+		driver.findElement(By.xpath("//ng-select[@id='bindisReadOnly']")).click();
+		List<WebElement> page5=driver.findElements(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']//div//div"));
+		Data.dropdown(page5,ex.getStringData("Event_Viewer", 1, 13));
+
+		driver.findElement(By.xpath("//input[@ng-reflect-name='coreAPIAtrribName']")).sendKeys(ex.getStringData("Event_Viewer", 1, 14));
+
+
+		driver.findElement(By.xpath("//ng-select[@id='bindisRequired']")).click();
+		List<WebElement> page6=driver.findElements(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']//div//div"));
+		Data.dropdown(page6,ex.getStringData("Event_Viewer", 1, 15));
+
+
+		driver.findElement(By.xpath("//input[@ng-reflect-name='childTabElementID']")).sendKeys(ex.getStringData("Event_Viewer", 1, 16));
+
+		driver.findElement(By.xpath("//ng-select[@id='bindIPOP']")).click();
+		List<WebElement> page7=driver.findElements(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']//div//div"));
+		Data.dropdown(page7,ex.getStringData("Event_Viewer", 1, 17));
+
+
+		driver.findElement(By.xpath("//input[@ng-reflect-name='ClickableObjectID']")).sendKeys(ex.getStringData("Event_Viewer", 1, 18));
+
+		driver.findElement(By.xpath("//input[@ng-reflect-name='isFormArray']")).sendKeys(ex.getStringData("Event_Viewer", 1, 19));
+
+
+		driver.findElement(By.xpath("//ng-select[@id='bindisMandatory']")).click();
+		List<WebElement> page8=driver.findElements(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']//div//div"));
+		Data.dropdown(page8,ex.getStringData("Event_Viewer", 1, 20));
+
+
+		driver.findElement(By.xpath("//input[@ng-reflect-name='TriggerVal']")).sendKeys(ex.getStringData("Event_Viewer", 1, 21));
+
+		//		driver.findElement(By.xpath("//ng-select[@id='bindisMandatory']//input[@role='combobox']")).click();
+		//		List<WebElement> page8=driver.findElements(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']//div"));
+		//		Data.dropdown(page8,ex.getStringData("Event_Viewer", 1, 19));
+		//		
+		driver.findElement(By.xpath("//input[@ng-reflect-name='ObjectTypeName']")).sendKeys(ex.getStringData("Event_Viewer", 1, 23));
+
+
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		// Validate the message after clicking the button
+		//		String expectedMessage = "Tab Inserted Successfully";
+		//		String actualMessage = driver.findElement(By.xpath("//button[@class='notifier__notification-button']")).getText();
+		//		System.out.println("actual "+ actualMessage);
+		//		Assert.assertEquals(actualMessage, expectedMessage, "Message after clicking the button is not as expected");
+
+
+
+	}
+}

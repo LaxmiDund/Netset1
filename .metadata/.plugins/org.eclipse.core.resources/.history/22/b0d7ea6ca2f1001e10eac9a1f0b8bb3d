@@ -1,0 +1,32 @@
+package event_viewer;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import Set.ty.ExcelProvider;
+
+public class SNMP {
+	WebDriver driver;
+	ExcelProvider ex;
+	
+	public SNMP(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	public void create() throws IOException
+	{
+		ex = new ExcelProvider();
+		driver.findElement(By.xpath("//p[normalize-space()='SNMP V1']")).click();
+		
+		String value=ex.getStringData("", 1, 0);
+		WebElement input=driver.findElement(By.xpath(""));
+		input.sendKeys(value);
+		String actual=input.getAttribute("value");
+		
+		
+	}
+
+}

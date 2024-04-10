@@ -1,0 +1,35 @@
+package event_viewer;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import Set.ty.ExcelProvider;
+
+public class Event1 {
+	WebDriver driver;
+	ExcelProvider ex;
+	public Event1(WebDriver driver) {
+
+		this.driver = driver;
+	}
+	public void viewer() throws IOException
+	{
+		ex= new ExcelProvider();
+		driver.findElement(By.xpath("//div[contains(text(),'Event Viewer')]")).click();	
+		WebElement checkbox = driver.findElement(By.xpath("//input[@type='checkbox']"));
+
+        // Check if the checkbox is selected
+        if (!checkbox.isSelected()) {
+            // Click the checkbox to select it
+            checkbox.click();
+            System.out.println("Checkbox is selected now.");
+        } else {
+            System.out.println("Checkbox is already selected.");
+        }
+		driver.findElement(By.xpath("//input[@type='checkbox']")).click();
+		
+	}
+}

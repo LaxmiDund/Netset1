@@ -1,0 +1,12 @@
+package Set.ty;
+
+public class ReportUtils {
+
+    public static ExtentReports initializeExtentReports(String reportPath) {
+        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(reportPath);
+        ExtentReports extent = new ExtentReports();
+        extent.attachReporter(htmlReporter);
+        return extent;
+    }
+
+}

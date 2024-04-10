@@ -1,0 +1,35 @@
+package Set.ty;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+public class Extent {
+	import com.aventstack.extentreports.ExtentReports;
+	import com.aventstack.extentreports.ExtentTest;
+	import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+	public class Extent {
+	    private ExtentReports report;
+	    private ExtentTest etest;
+	    private ExtentSparkReporter spark;
+
+	    public Extent(String reportPath) {
+	        spark = new ExtentSparkReporter(reportPath);
+	        report = new ExtentReports();
+	        report.attachReporter(spark);
+	    }
+
+	    public ExtentTest createTest(String testName) {
+	        etest = report.createTest(testName);
+	        return etest;
+	    }
+
+	    public void flushReport() {
+	        report.flush();
+	    }
+	}
+
+	}
+	
+}

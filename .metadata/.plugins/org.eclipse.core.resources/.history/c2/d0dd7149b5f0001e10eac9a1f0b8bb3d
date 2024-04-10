@@ -1,0 +1,25 @@
+package event_viewer;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import Set.ty.ExcelProvider;
+
+public class TableAction {
+	WebDriver driver;
+	ExcelProvider ex;
+	public TableAction(WebDriver driver) {
+
+		this.driver = driver;
+	}
+	public void Table() throws IOException
+	{
+		ex= new ExcelProvider();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);	
+		driver.findElement(By.xpath("//p[normalize-space()='Table Actions']")).click();
+		
+}
+}

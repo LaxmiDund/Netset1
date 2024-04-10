@@ -1,0 +1,40 @@
+package Metadata.ty;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import Set.ty.Data;
+import Set.ty.ExcelProvider;
+
+public class Tabelement {
+	WebDriver driver;
+	ExcelProvider ex;
+	public Tabelement(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+	public void tab() throws IOException
+	{
+		ex= new ExcelProvider();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//div[contains(text(),'Metadata')]")).click();
+		driver.findElement(By.xpath("//p[normalize-space()='TabElement']")).click();
+		
+		driver.findElement(By.xpath("//input[@id='PageName']")).sendKeys(ex.getStringData("TabElement", 1, 0));
+		
+		driver.findElement(By.xpath("//ng-select[@id='bind680']//input[@role='combobox']")).click();
+		List<WebElement> page= driver.findElements(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']//div"));
+		Data.dropdown(page,ex.getStringData("TabElement", 1, 1)); 
+        
+		driver.findElement(By.xpath("//input[@id='whereClause']")).sendKeys(ex.getStringData("TabElement", 1, 2));
+		
+		driver.findElement(By.xpath("//i[@class='fa fa-pencil-square-o']")).click();
+		
+		//ng-select[@id='bind680']
+}
+}

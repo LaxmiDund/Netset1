@@ -1,0 +1,55 @@
+package Set.ty;
+
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class ExcelReadNumericToString {
+    public static void main(String[] args) throws IOException {
+        // Provide the path to your Excel file
+    	XSSFWorkbook wb;
+        String excelFilePath = "./Test/data.xlsx";
+
+        // Create a FileInputStream to read the Excel file
+        FileInputStream inputStream = new FileInputStream(excelFilePath);
+ 		wb=new XSSFWorkbook(inputStream);
+
+        // Create a Workbook instance for the Excel file
+        Workbook workbook = WorkbookFactory.create(inputStream);
+
+        // Get the first sheet from the workbook
+        Sheet sheet = workbook.getSheetAt(0);
+
+        // Iterate over rows in the sheet
+        for (Row row : sheet) {
+            // Iterate over cells in the row
+            for (Cell cell : row) {
+                // Check if the cell contains a numeric value
+                if (cell.getCellType() == CellType.NUMERIC) {
+                    // Convert the numeric value to a string
+                    String cellValue = String.valueOf(cell.getNumericCellValue());
+                    // Print or use the string value
+                    System.out.println("Numeric cell value as string: " + cellValue);
+                } else if (cell.getCellType() == CellType.STRING) {
+                    // If the cell already contains a string, print or use the string value directly
+                    String cellValue = cell.getStringCellValue();
+                    System.out.println("String cell value: " + cellValue);
+                }
+            }
+        }
+
+        // Close the workbook and input stream
+        workbook.close();
+        inputStream.close();
+    }
+    public String getStringData(String shName,int row,int col)
+	 {
+	 	return wb.getSheet(shName).getRow(row).getCell(col).getStringCellValue();
+	 }
+	 public double getNumericData(String shName,int row,int col)
+	 {
+	 	return wb.getSheet(shName).getRow(row).getCell(col).getNumericCellValue();
+	 }
+}

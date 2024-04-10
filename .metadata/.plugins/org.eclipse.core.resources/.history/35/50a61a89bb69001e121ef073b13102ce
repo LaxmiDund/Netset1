@@ -1,0 +1,41 @@
+package Demo.ty;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import Set.ty.ExcelProvider;
+
+public class Shelf{
+	WebDriver driver;
+	ExcelProvider ex;
+	public metadata(WebDriver driver){
+		this.driver = driver;
+	}
+	public void NCreation() throws IOException {
+	ex=new ExcelProvider();
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	driver.findElement(By.xpath("//div[contains(text(),'Metadata')]")).click();
+//	driver.findElement(By.xpath("//p[contains(text(),'NEType')]")).click();
+//	WebElement ne=driver.findElement(By.xpath("//input[@id='NETypeName']"));
+//	ne.sendKeys(ex.getStringData("NEtype", 1, 1));
+//	
+//	driver.findElement(By.xpath("//input[@role='combobox']")).click();
+//	List<WebElement> drop=driver.findElements(By.xpath("//div[@class='ng-dropdown-panel-items scroll-host']/div"));
+//	
+//	driver.findElement(By.id("PortOrder")).sendKeys("Order1");
+//	driver.findElement(By.id("PortPosition")).sendKeys("1");
+//	driver.findElement(By.id("ShelfPositioning")).sendKeys("3");
+//	driver.findElement(By.id("Description")).sendKeys("testing");
+//	WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']")); 
+//	fileInput.sendKeys("C:\\Users\\User\\Desktop\\port1.jpg");
+//	driver.findElement(By.xpath("//button[@type='submit']")).click();
+	
+}
+	
+	
+}

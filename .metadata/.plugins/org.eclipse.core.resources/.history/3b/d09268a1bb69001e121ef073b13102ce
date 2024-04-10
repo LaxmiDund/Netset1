@@ -1,0 +1,47 @@
+package Demo.ty;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.Test;
+import io.github.bonigarcia.wdm.WebDriverManager; 
+
+public class Login {
+	WebDriver driver;
+     
+    @Test
+    public void login() throws IOException, InterruptedException 
+	{
+    	 	
+		ChromeOptions options = new ChromeOptions();
+    	//EdgeOptions options = new EdgeOptions();
+        options.setAcceptInsecureCerts(true);
+		driver = new ChromeDriver(options);
+		WebDriverManager.edgedriver().setup();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get("https://192.168.4.42/#/home");
+		WebElement username= driver.findElement(By.id("username"));
+		username.sendKeys("Poul");
+		WebElement password= driver.findElement(By.name("password"));
+		password.sendKeys("mcts123");
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+	}
+    
+    @Test(dependsOnMethods = "login")
+    public void dCreation() throws InterruptedException, IOException
+    {
+    	deviceCreation d=new deviceCreation(driver);
+    	d.addDevice();
+    }
+    @Test(dependsOnMethods="dCreation")   
+    public void metacreation() throws IOException {
+    	metadata d1=new metadata(driver);
+    	d1.NCreation();
+    	
+    }
+}

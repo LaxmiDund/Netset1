@@ -1,0 +1,21 @@
+package Set.ty;
+
+public class ExcelProvider {
+	
+	 XSSFWorkbook wb;
+	 public ExcelProvider() throws IOException {
+	 		File src=new File("./Test/data.xlsx");
+	 		FileInputStream file=new FileInputStream(src);
+	 		wb=new XSSFWorkbook(file);
+	 }
+	 public String getStringData(String shName,int row,int col)
+	 {
+	 	return wb.getSheet(shName).getRow(row).getCell(col).getStringCellValue();
+	 }
+	 public double getNumericData(String shName,int row,int col)
+	 {
+	 	return wb.getSheet(shName).getRow(row).getCell(col).getNumericCellValue();
+	 }
+
+	 
+}

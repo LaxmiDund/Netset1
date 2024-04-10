@@ -1,0 +1,14 @@
+package event_viewer;
+
+import org.openqa.selenium.WebDriver;
+
+import Set.ty.ExcelProvider;
+
+public class Event1 {
+	WebDriver driver;
+	ExcelProvider ex;
+	public Event1(WebDriver driver) {
+		
+		this.driver = driver;
+	}
+}
